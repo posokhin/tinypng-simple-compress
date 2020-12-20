@@ -1,0 +1,19 @@
+{
+  "name": "tinyfy",
+  "version": "1.0.0",
+  "description": "TinyPng Compress Images",
+  "main": "index.js",
+  "scripts": {
+    "tinify": "node index.js"
+  },
+  "author": "Anton Posokhin posohin7@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "consola": "^2.15.0",
+    "tinify": "^1.6.0-beta.2",
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.16.0"
+  }
+}
