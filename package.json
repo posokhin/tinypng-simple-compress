@@ -13,6 +13,9 @@
     "url": "https://github.com/posokhin/tinypng-simple-compress.git"
   },
   "bugs": "https://github.com/posokhin/tinypng-simple-compress/issues",
+  "bin": {
+    "tinypng-simple-compress": "index.js"
+  },
   "dependencies": {
     "consola": "^2.15.0",
     "tinify": "^1.6.0-beta.2",

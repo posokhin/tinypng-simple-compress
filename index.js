@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs')
 const consola = require('consola')
 const argv = require('yargs/yargs')(process.argv.slice(2)).argv
