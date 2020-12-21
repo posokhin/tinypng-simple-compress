@@ -1,6 +1,6 @@
 {
   "name": "tinypng-simple-compress",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Tinypng simple compress images",
   "main": "index.js",
   "scripts": {
