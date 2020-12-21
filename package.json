@@ -1,7 +1,7 @@
 {
-  "name": "tinypng-compress",
+  "name": "tinypng-simple-compress",
   "version": "1.0.0",
-  "description": "TinyPng Compress Images",
+  "description": "Tinypng simple compress images",
   "main": "index.js",
   "scripts": {
     "test": "echo Error: no test specified"
