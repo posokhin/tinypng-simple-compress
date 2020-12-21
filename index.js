@@ -24,11 +24,11 @@ const tinifyImages = (from, to) => {
 }
 
 if (!key) {
-  consola.error('--key argument required')
+  consola.error('--key argument is required')
 } else if (!from) {
-  consola.error('--from argument required')
+  consola.error('--from argument is required')
 } else if (!to) {
-  consola.error('--to argument required')
+  consola.error('--to argument is required')
 } else {
   tinify.key = key
   tinifyImages(from, to)
