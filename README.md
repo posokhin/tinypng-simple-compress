@@ -1,18 +1,18 @@
-#tinypng-simple-compress
+# tinypng-simple-compress
 
 Simple tool for compressing png and jpg images
 
 Get your **api key** - https://tinypng.com/developers
 
-##Install
+## Install
 
 `npm i -g tinypng-simple-compress`
 
-##Usage
+## Usage
 
 `npx tinypng-simple-compress --key <your api key> --from <source files directory> --to <destination directory>`
 
-##Support
+## Support
 
 Anton Posokhin - posohin7@gmail.com
 
