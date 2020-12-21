@@ -10,7 +10,7 @@ Get your **api key** - https://tinypng.com/developers
 
 ## Usage
 
-`npx tinypng-simple-compress --key <your api key> --from <source files directory> --to <destination directory>`
+`tinypng-simple-compress --key <your api key> --from <source files directory> --to <destination directory>`
 
 ## Support
 
