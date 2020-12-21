@@ -8,6 +8,11 @@
   },
   "author": "Anton Posokhin posohin7@gmail.com",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/posokhin/tinypng-simple-compress"
+  },
+  "bugs": "https://github.com/posokhin/tinypng-simple-compress/issues",
   "dependencies": {
     "consola": "^2.15.0",
     "tinify": "^1.6.0-beta.2",
