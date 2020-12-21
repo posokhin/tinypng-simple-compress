@@ -1,10 +1,10 @@
 {
-  "name": "tinyfy",
+  "name": "tinypng-compress",
   "version": "1.0.0",
   "description": "TinyPng Compress Images",
   "main": "index.js",
   "scripts": {
-    "tinify": "node index.js"
+    "test": "echo Error: no test specified"
   },
   "author": "Anton Posokhin posohin7@gmail.com",
   "license": "ISC",
