@@ -19,9 +19,20 @@ const tinifyImages = (from, to) => {
     return false
   }
   files.forEach(async (i) => {
-    let source = tinify.fromFile(`${ from }/${ i }`)
-    await source.toFile(`${to}/${i}`)
-    consola.success(`${ i } ${ getFilesize(`${from}/${i}`) } => ${ getFilesize(`${to}/${i}`) }`)
+    let isDirectory = fs.statSync(`${ from }/${ i }`).isDirectory()
+    if (isDirectory) {
+      fs.mkdirSync(`${ to }/${ i }`)
+      const files = fs.readdirSync(`${ from }/${ i }`)
+      for (const k of files) {
+        let source = tinify.fromFile(`${ from }/${ i }/${ k }`)
+        await source.toFile(`${ to }/${ i }/${ k }`)
+        consola.success(`${ k } ${ getFilesize(`${from}/${i}/${ k }`) } => ${ getFilesize(`${to}/${i}/${ k }`) }`)
+      }
+    } else {
+      let source = tinify.fromFile(`${ from }/${ i }`)
+      await source.toFile(`${to}/${i}`)
+      consola.success(`${ i } ${ getFilesize(`${from}/${i}`) } => ${ getFilesize(`${to}/${i}`) }`)
+    }
   })
 }
 
