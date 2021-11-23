@@ -7,33 +7,33 @@ const tinify = require('tinify')
 
 let key = argv.key, from = argv.from, to = argv.to
 
-const getFilesize = (filename) => {
-  const stats = fs.statSync(filename)
-  return parseInt(stats.size / 1024) + ' kb'
+const getFilesize = (path) => {
+  if (!fs.statSync(path).isDirectory()) {
+    const stats = fs.statSync(path)
+    return parseInt(`${stats.size / 1024}`) + ' kb'
+  }
 }
 
 const tinifyImages = (from, to) => {
-  const files = fs.readdirSync(from)
-  if (!files || !files.length || files.length === 0) {
-    consola.error('Files not found')
-    return false
+  const ls = fs.readdirSync(from)
+  if (!fs.existsSync(to)) {
+    fs.mkdirSync(to)
   }
-  files.forEach(async (i) => {
-    let isDirectory = fs.statSync(`${ from }/${ i }`).isDirectory()
-    if (isDirectory) {
-      fs.mkdirSync(`${ to }/${ i }`)
-      const files = fs.readdirSync(`${ from }/${ i }`)
-      for (const k of files) {
-        let source = tinify.fromFile(`${ from }/${ i }/${ k }`)
-        await source.toFile(`${ to }/${ i }/${ k }`)
-        consola.success(`${ k } ${ getFilesize(`${from}/${i}/${ k }`) } => ${ getFilesize(`${to}/${i}/${ k }`) }`)
+  if (ls && ls.length > 0) {
+    ls.forEach(async (i) => {
+      const isDirectory = fs.statSync(`${ from }/${ i }`).isDirectory()
+      if (isDirectory) {
+        to = `${ to }/${ i }`
+        from = `${ from }/${ i }`
+        tinifyImages(from, to)
+      } else {
+        const localFrom = from
+        const localTo = to
+        await tinify.fromFile(`${ from }/${ i }`).toFile(`${ to }/${ i }`)
+        consola.success(`${ i } ${ getFilesize(`${ localFrom }/${ i }`) } => ${ getFilesize(`${ localTo }/${ i }`) }`)
       }
-    } else {
-      let source = tinify.fromFile(`${ from }/${ i }`)
-      await source.toFile(`${to}/${i}`)
-      consola.success(`${ i } ${ getFilesize(`${from}/${i}`) } => ${ getFilesize(`${to}/${i}`) }`)
-    }
-  })
+    })
+  }
 }
 
 if (!key) {
